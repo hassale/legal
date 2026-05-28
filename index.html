@@ -249,11 +249,10 @@
 
     footer a:hover { color: var(--accent); }
 
-    /* Language switching */
-    .lang-en, .nav-en, .footer-en { display: none; }
+    /* Language switching — only hide the non-active language's content */
+    body.lang-de .lang-en, body.lang-de .nav-en, body.lang-de .footer-en { display: none; }
     body.lang-en .lang-de, body.lang-en .nav-de, body.lang-en .footer-de { display: none; }
-    body.lang-en .lang-en, body.lang-en .nav-en, body.lang-en .footer-en { display: revert; }
-    body.lang-en nav.nav-en { display: flex; }
+    nav.nav-de, nav.nav-en { display: flex; }
 
     @media (max-width: 500px) {
       nav a { padding: 0.8rem 1rem; }
