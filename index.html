@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Impressum & Datenschutz – Alexander Hass</title>
+  <title>Impressum & Datenschutz / Legal Notice & Privacy – Alexander Hass</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,7 +49,41 @@
       min-height: 100vh;
     }
 
+    /* Language toggle (top right corner) */
+    .lang-toggle {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      display: flex;
+      gap: 2px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px;
+      z-index: 200;
+    }
+
+    .lang-toggle button {
+      background: none;
+      border: none;
+      padding: 6px 12px;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 5px;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .lang-toggle button.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
     header {
+      position: relative;
       padding: 3.5rem 2rem 2.5rem;
       text-align: center;
       border-bottom: 1px solid var(--border);
@@ -106,6 +140,7 @@
       text-decoration: none;
       border-bottom: 2px solid transparent;
       transition: color 0.2s, border-color 0.2s;
+      font-family: inherit;
     }
 
     nav a:hover, nav a.active {
@@ -191,21 +226,6 @@
 
     .info-val { color: var(--text); line-height: 1.6; }
 
-    .placeholder {
-      background: var(--accent-light);
-      border: 1px dashed rgba(45,90,61,0.3);
-      border-radius: 8px;
-      padding: 0.7rem 1rem;
-      font-size: 13px;
-      color: var(--accent);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      margin: 0.5rem 0 1.5rem;
-    }
-
-    .placeholder::before { content: '✎'; flex-shrink: 0; }
-
     hr.divider {
       border: none;
       border-top: 1px solid var(--border);
@@ -229,102 +249,213 @@
 
     footer a:hover { color: var(--accent); }
 
+    /* Language switching */
+    .lang-en, .nav-en, .footer-en { display: none; }
+    body.lang-en .lang-de, body.lang-en .nav-de, body.lang-en .footer-de { display: none; }
+    body.lang-en .lang-en, body.lang-en .nav-en, body.lang-en .footer-en { display: revert; }
+    body.lang-en nav.nav-en { display: flex; }
+
     @media (max-width: 500px) {
       nav a { padding: 0.8rem 1rem; }
       .info-key { min-width: 90px; }
       main { padding: 2.5rem 1.25rem 5rem; }
+      .lang-toggle { top: 0.75rem; right: 0.75rem; }
+      .lang-toggle button { padding: 5px 9px; font-size: 10px; }
     }
   </style>
 </head>
-<body>
+<body class="lang-en">
+
+<div class="lang-toggle">
+  <button id="btn-de" onclick="setLang('de')">DE</button>
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+</div>
 
 <header>
   <div class="monogram">AH</div>
   <h1 class="name">Alexander Hass</h1>
-  <p class="header-sub">Impressum &amp; Datenschutz</p>
+  <p class="header-sub lang-de">Impressum &amp; Datenschutz</p>
+  <p class="header-sub lang-en">Legal Notice &amp; Privacy</p>
 </header>
 
-<nav>
+<!-- German Nav -->
+<nav class="nav-de">
   <a href="#impressum" class="active">Impressum</a>
   <a href="#datenschutz">Datenschutz</a>
 </nav>
 
+<!-- English Nav -->
+<nav class="nav-en">
+  <a href="#legal" class="active">Legal Notice</a>
+  <a href="#privacy">Privacy</a>
+</nav>
+
 <main>
 
-  <section id="impressum">
-    <p class="section-label">§ 5 DDG</p>
-    <h2>Impressum</h2>
+  <!-- ═════════════════════════════ DEUTSCH ══ -->
+  <div class="lang-de">
 
-    <h3>Angaben gemäß § 5 DDG</h3>
-    <div class="info-block">
-      <div class="info-row">
-        <span class="info-key">Name</span>
-        <span class="info-val">Alexander Hass</span>
+    <section id="impressum">
+      <p class="section-label">§ 5 DDG</p>
+      <h2>Impressum</h2>
+
+      <h3>Angaben gemäß § 5 DDG</h3>
+      <div class="info-block">
+        <div class="info-row">
+          <span class="info-key">Name</span>
+          <span class="info-val">Alexander Hass</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Anschrift</span>
+          <span class="info-val">
+            c/o IP-Management #10378<br>
+            Ludwig-Erhard-Str. 18<br>
+            20459 Hamburg
+          </span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">E-Mail</span>
+          <span class="info-val">
+            <a href="mailto:hass.alexander.biz@gmail.com">hass.alexander.biz@gmail.com</a>
+          </span>
+        </div>
       </div>
-      <div class="info-row">
-        <span class="info-key">Anschrift</span>
-        <span class="info-val">
-          c/o IP-Management #10378<br>
-          Ludwig-Erhard-Str. 18<br>
-          20459 Hamburg
-        </span>
+
+      <h3>Verbraucherschlichtung</h3>
+      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    </section>
+
+    <hr class="divider" />
+
+    <section id="datenschutz">
+      <p class="section-label">DSGVO / Art. 13</p>
+      <h2>Datenschutzerklärung</h2>
+
+      <h3>1. Verantwortlicher</h3>
+      <p>Verantwortlicher im Sinne der DSGVO ist Alexander Hass, erreichbar unter der im Impressum angegebenen Adresse und E-Mail-Adresse.</p>
+
+      <h3>2. Erhebung und Verarbeitung von Daten</h3>
+      <p>Diese Seite erhebt selbst keine personenbezogenen Daten und verwendet keine Cookies, Tracking-Tools oder Analysedienste. Es werden keine Nutzerdaten gespeichert, verarbeitet oder an Dritte weitergegeben.</p>
+
+      <h3>3. Hosting</h3>
+      <p>Diese Seite wird über GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) gehostet. GitHub kann beim Seitenaufruf technische Zugriffsdaten protokollieren. Weitere Informationen: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Datenschutzerklärung</a>.</p>
+
+      <h3>4. Social-Media-Kanäle</h3>
+      <p>Beim Besuch der über meine Profile verlinkten Social-Media-Plattformen gelten deren jeweilige Datenschutzbestimmungen. Auf die Datenverarbeitung durch diese Plattformen habe ich keinen Einfluss.</p>
+
+      <h3>5. Deine Rechte</h3>
+      <p>Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch (Art. 21 DSGVO). Für Anfragen wende dich bitte an die im Impressum genannte E-Mail-Adresse. Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+
+      <h3>6. Aktualität</h3>
+      <p>Diese Datenschutzerklärung hat den Stand Mai 2026 und kann bei Änderungen des Angebots oder der Rechtslage angepasst werden.</p>
+    </section>
+
+  </div>
+
+  <!-- ═════════════════════════════ ENGLISH ══ -->
+  <div class="lang-en">
+
+    <section id="legal">
+      <p class="section-label">German Law § 5 DDG</p>
+      <h2>Legal Notice</h2>
+
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 1.5rem;">Information required under German law (§ 5 DDG — Digital Services Act).</p>
+
+      <h3>Operator Information</h3>
+      <div class="info-block">
+        <div class="info-row">
+          <span class="info-key">Name</span>
+          <span class="info-val">Alexander Hass</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Address</span>
+          <span class="info-val">
+            c/o IP-Management #10378<br>
+            Ludwig-Erhard-Str. 18<br>
+            20459 Hamburg<br>
+            Germany
+          </span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Email</span>
+          <span class="info-val">
+            <a href="mailto:hass.alexander.biz@gmail.com">hass.alexander.biz@gmail.com</a>
+          </span>
+        </div>
       </div>
-      <div class="info-row">
-        <span class="info-key">E-Mail</span>
-        <span class="info-val">
-          <a href="mailto:[hass.alexander.biz@gmail.com]">hass.alexander.biz@gmail.com</a>
-        </span>
-      </div>
-    </div>
 
-    <h3>Verbraucherschlichtung</h3>
-    <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-  </section>
+      <h3>Consumer Dispute Resolution</h3>
+      <p>The European Commission provides a platform for online dispute resolution: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. I am not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+    </section>
 
-  <hr class="divider" />
+    <hr class="divider" />
 
-  <section id="datenschutz">
-    <p class="section-label">DSGVO / Art. 13</p>
-    <h2>Datenschutzerklärung</h2>
+    <section id="privacy">
+      <p class="section-label">GDPR / Art. 13</p>
+      <h2>Privacy Policy</h2>
 
-    <h3>1. Verantwortlicher</h3>
-    <p>Verantwortlicher im Sinne der DSGVO ist Alexander Hass, erreichbar unter der im Impressum angegebenen Adresse und E-Mail-Adresse.</p>
+      <h3>1. Data Controller</h3>
+      <p>The data controller within the meaning of the GDPR is Alexander Hass, reachable at the address and email listed in the Legal Notice above.</p>
 
-    <h3>2. Erhebung und Verarbeitung von Daten</h3>
-    <p>Diese Seite erhebt selbst keine personenbezogenen Daten und verwendet keine Cookies, Tracking-Tools oder Analysedienste. Es werden keine Nutzerdaten gespeichert, verarbeitet oder an Dritte weitergegeben.</p>
+      <h3>2. Data Collection and Processing</h3>
+      <p>This page does not collect any personal data and does not use cookies, tracking tools, or analytics services. No user data is stored, processed, or shared with third parties.</p>
 
-    <h3>3. Hosting</h3>
-    <p>Diese Seite wird über GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) gehostet. GitHub kann beim Seitenaufruf technische Zugriffsdaten protokollieren. Weitere Informationen: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Datenschutzerklärung</a>.</p>
+      <h3>3. Hosting</h3>
+      <p>This page is hosted on GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). GitHub may log technical access data (e.g., IP address) when the page is accessed. More information: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
 
-    <h3>4. Social-Media-Kanäle</h3>
-    <p>Beim Besuch der über meine Profile verlinkten Social-Media-Plattformen gelten deren jeweilige Datenschutzbestimmungen. Auf die Datenverarbeitung durch diese Plattformen habe ich keinen Einfluss.</p>
+      <h3>4. Social Media Channels</h3>
+      <p>When visiting the social media platforms linked from my profiles, the respective privacy policies of those platforms apply. I have no influence over the data processing carried out by these platforms.</p>
 
-    <h3>5. Deine Rechte</h3>
-    <p>Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch (Art. 21 DSGVO). Für Anfragen wende dich bitte an die im Impressum genannte E-Mail-Adresse. Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+      <h3>5. Your Rights</h3>
+      <p>You have the right to access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20), and objection (Art. 21 GDPR). For inquiries, please contact me via the email address in the Legal Notice. You also have the right to lodge a complaint with a data protection supervisory authority.</p>
 
-    <h3>6. Aktualität</h3>
-    <p>Diese Datenschutzerklärung hat den Stand Mai 2026 und kann bei Änderungen des Angebots oder der Rechtslage angepasst werden.</p>
-  </section>
+      <h3>6. Currency</h3>
+      <p>This privacy policy is current as of May 2026 and may be updated when the service offering or legal requirements change.</p>
+    </section>
+
+  </div>
 
 </main>
 
 <footer>
   <p style="margin-bottom: 0.5rem;">Alexander Hass</p>
-  <p>
+  <p class="footer-de">
     <a href="#impressum">Impressum</a>
     <a href="#datenschutz">Datenschutz</a>
+  </p>
+  <p class="footer-en">
+    <a href="#legal">Legal Notice</a>
+    <a href="#privacy">Privacy</a>
   </p>
 </footer>
 
 <script>
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.documentElement.lang = lang;
+    document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+
+  // Auto-detect language on first visit (default = English)
+  (function() {
+    let saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    if (saved) {
+      setLang(saved);
+    } else if (navigator.language.toLowerCase().startsWith('de')) {
+      setLang('de');
+    }
+  })();
+
+  // Active nav highlight on scroll
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('nav a');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        navLinks.forEach(l => l.classList.remove('active'));
-        const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
+        document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
+        document.querySelectorAll(`nav a[href="#${entry.target.id}"]`).forEach(a => a.classList.add('active'));
       }
     });
   }, { rootMargin: '-30% 0px -60% 0px' });
