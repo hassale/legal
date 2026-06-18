@@ -1,0 +1,31 @@
+# Secrets / Umgebung
+.env
+.env.*
+*.local
+secrets.*
+*.pem
+*.key
+
+# Abhängigkeiten / Builds
+node_modules/
+dist/
+build/
+.cache/
+.next/
+.parcel-cache/
+
+# Python (falls Tooling dazukommt)
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
