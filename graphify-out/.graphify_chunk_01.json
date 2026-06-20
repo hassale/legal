@@ -1,0 +1,277 @@
+{
+  "nodes": [
+    {
+      "id": "index_legal_page",
+      "label": "Impressum & Datenschutz / Legal Notice & Privacy Page",
+      "file_type": "document",
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Alexander Hass",
+      "contributor": null
+    },
+    {
+      "id": "index_alexander_hass",
+      "label": "Alexander Hass (Operator / Data Controller)",
+      "file_type": "concept",
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_impressum",
+      "label": "Impressum (Legal Notice, § 5 DDG)",
+      "file_type": "document",
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_datenschutz",
+      "label": "Datenschutzerklärung (Privacy Policy, GDPR Art. 13)",
+      "file_type": "document",
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_no_data_collection",
+      "label": "No Data Collection / No Cookies or Tracking",
+      "file_type": "concept",
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_self_hosted_fonts",
+      "label": "Self-Hosted Fonts (DM Sans / DM Serif Display)",
+      "file_type": "concept",
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_github_pages_hosting",
+      "label": "GitHub Pages Hosting (US transfer, DPF + SCC)",
+      "file_type": "concept",
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_etsy_sales",
+      "label": "Sales via Etsy (Etsy Ireland UC)",
+      "file_type": "concept",
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_data_subject_rights",
+      "label": "Data Subject Rights (GDPR Art. 15-21)",
+      "file_type": "concept",
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_lang_toggle",
+      "label": "Bilingual Language Toggle (DE/EN)",
+      "file_type": "concept",
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_dsgvo_compliance_rationale",
+      "label": "DSGVO Compliance Design Choices",
+      "file_type": "rationale",
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "index_legal_page",
+      "target": "index_impressum",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_legal_page",
+      "target": "index_datenschutz",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_impressum",
+      "target": "index_alexander_hass",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_datenschutz",
+      "target": "index_alexander_hass",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_datenschutz",
+      "target": "index_no_data_collection",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_datenschutz",
+      "target": "index_github_pages_hosting",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_datenschutz",
+      "target": "index_etsy_sales",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_datenschutz",
+      "target": "index_data_subject_rights",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_legal_page",
+      "target": "index_lang_toggle",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_legal_page",
+      "target": "index_self_hosted_fonts",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_self_hosted_fonts",
+      "target": "index_dsgvo_compliance_rationale",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_no_data_collection",
+      "target": "index_dsgvo_compliance_rationale",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_self_hosted_fonts",
+      "target": "index_no_data_collection",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_impressum",
+      "target": "index_datenschutz",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "legal/index.html",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "label": "Third-party data processors disclosed (US/EU transfer chain)",
+      "nodes": ["index_datenschutz", "index_github_pages_hosting", "index_etsy_sales"],
+      "confidence": "INFERRED",
+      "confidence_score": 0.85
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
