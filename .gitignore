@@ -32,3 +32,6 @@ desktop.ini
 
 # Crash-Dumps (Git-Bash / Cygwin)
 *.stackdump
+
+# Graphify-Artefakte — dieses Repo ist eine einzelne HTML-Seite, ein Graph bringt hier nichts
+graphify-out/
