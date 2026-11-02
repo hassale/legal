@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -282,11 +282,11 @@
     }
   </style>
 </head>
-<body class="lang-en">
+<body class="lang-de">
 
 <div class="lang-toggle">
-  <button id="btn-de" onclick="setLang('de')">DE</button>
-  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-de" class="active" onclick="setLang('de', true)">DE</button>
+  <button id="btn-en" onclick="setLang('en', true)">EN</button>
 </div>
 
 <header>
@@ -480,23 +480,32 @@
 </footer>
 
 <script>
-  function setLang(lang) {
+  function setLang(lang, remember) {
     document.body.className = 'lang-' + lang;
     document.documentElement.lang = lang;
     document.getElementById('btn-de').classList.toggle('active', lang === 'de');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    try { localStorage.setItem('lang', lang); } catch (e) {}
+    if (remember) { try { localStorage.setItem('lang', lang); } catch (e) {} }
   }
 
-  // Auto-detect language on first visit (default = English)
+  // Sprachwahl, Reihenfolge: ?lang=de|en > eigener Klick (gespeichert) > Browsersprachen
+  // > Zeitzone im DACH-Raum > Deutsch. Standort nur über die Zeitzone des Geräts:
+  // keine IP-Abfrage, kein Drittanbieter-Request. Ohne JS bleibt es Deutsch.
   (function() {
-    let saved = null;
+    var ok = function(l) { return l === 'de' || l === 'en'; };
+    var param = null;
+    try { param = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+    if (ok(param)) { setLang(param); return; }
+    var saved = null;
     try { saved = localStorage.getItem('lang'); } catch (e) {}
-    if (saved) {
-      setLang(saved);
-    } else if (navigator.language.toLowerCase().startsWith('de')) {
-      setLang('de');
-    }
+    if (ok(saved)) { setLang(saved); return; }
+    var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ''];
+    var spricht = langs.some(function(l) { return /^de(-|$)/i.test(l); });
+    var tz = '';
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+    var dach = /^Europe\/(Berlin|Busingen|Vienna|Zurich|Vaduz|Luxembourg)$/.test(tz);
+    var fremd = langs.length > 0 && langs[0] !== '' && !spricht;
+    setLang(spricht || dach || !fremd ? 'de' : 'en');
   })();
 
   // Active nav highlight on scroll
